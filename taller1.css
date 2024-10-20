@@ -1,0 +1,72 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    color: #444;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.post-list {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a varias filas si es necesario */
+    gap: 20px;
+}
+
+.post-item {
+    background-color: #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+}
+
+.post-item:hover {
+    transform: scale(1.05); /* Efecto de agrandar cuando se pasa el ratón */
+}
+
+.post-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.post-body {
+    font-size: 14px;
+    color: #666;
+}
+
+/* Responsivo: Cuando la pantalla es más pequeña */
+@media (max-width: 768px) {
+    .post-item {
+        width: calc(50% - 20px); /* Dos elementos por fila en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .post-item {
+        width: 100%; /* Un solo elemento por fila en pantallas muy pequeñas */
+    }
+}
