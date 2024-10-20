@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller Nivel Intermedio</title>
+</head>
+
+<body>
+    <div>
+        <h1>Lista de Tareas</h1>
+        <ul id="taskList"></ul>
+        <input type="text" id="newTask" placeholder="Nueva Tarea">
+        <button id="addTask">Agregar Tarea</button>
+        <div>
+            <ul id="postList"></ul>
+        </div>
+    </div>
+    <script>
+        const taskList = document.getElementById('taskList');
+        const newTask = document.getElementById('newTask');
+        const addTaskBtn = document.getElementById('addTask');
+        let task = newTask.value;
+
+        addTaskBtn.addEventListener('click', function () {
+            if (newTask.value.trim() !== '') {
+                const li = document.createElement('li')
+                li.textContent = newTask.value
+                li.addEventListener('click', () => li.classList.toggle('completed'));
+                const deleteBn = document.createElement('button');
+                deleteBn.textContent = 'Eliminar';
+                deleteBn.addEventListener('click', () => li.remove());
+                li.appendChild(deleteBn);
+                taskList.appendChild(li);
+                newTask.value = '';
+            }
+        });
+
+        async function getPosts() {
+            try {
+                const response = await fetch('https://jsonplaceholder.typicode.comd/posts');
+
+                if (!response.ok) {
+                    throw Error(`Error en la solicitud: ${response.status}`);
+                }
+                const posts = await response.json();
+                console.log(posts);
+                const postList = document.getElementById('postList');
+                posts.forEach(post => {
+                    const postTitle = document.createElement('h3');
+                    const postBody = document.createElement('p')
+                    postTitle.textContent = post.title;
+                    postBody.textContent = post.body;
+                    postTitle.addEventListener('click', () => alert(post.body));
+                    postList.appendChild(postTitle);
+                    postList.appendChild(postBody)
+                });
+            } catch (error) {
+                console.error("Error al obtener el post", error)
+            }
+
+        }
+        document.addEventListener('DOMContentLoaded', getPosts);
+
+    </script>
+</body>
+
+</html>
