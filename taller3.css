@@ -1,3 +1,6 @@
 #user-list div{
-    border: 1px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px;
+    margin-bottom: 20px;
 }
