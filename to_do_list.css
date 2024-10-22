@@ -28,6 +28,16 @@ main{
     flex-direction: column;
 }
 
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 ul {
     list-style: none;
     margin-top: 20px;
@@ -36,15 +46,26 @@ ul {
 }
 
 li{
+    background-color: #f9f9f9;
+    padding: 10px;
     list-style: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
-    padding: 5px;
 }
 
 li.completed {
     text-decoration: line-through;
     color: #888;
+}
+
+li button{
+    background-color: #dc3545;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
 }
