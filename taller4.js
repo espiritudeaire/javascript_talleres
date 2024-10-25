@@ -4,12 +4,10 @@
 
 function getUsers() {
     fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(data => {
-            console.log('GET - Lista de Uusarios:', data);
-
-        })
+        .then(response => json = response.json())
+        .then(data => data)
         .catch(error => console.log('Error en Get', error));
 }
 
-getUsers();
+usuarios = getUsers();
+console.log(usuarios);
