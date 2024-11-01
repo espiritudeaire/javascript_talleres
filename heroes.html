@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Our superheroes</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+      <header>
+
+      </header>
+
+      <section>
+
+      </section>
+
+      <script>
+const requestURL =
+    "https://mdn.github.io/learning-area/javascript/oojs/json/superheroes.json";
+const request = new XMLHttpRequest();
+request.open('GET', requestURL);
+
+request.responseType = "json";
+request.send();
+
+request.onload = function () {
+    const superHeroes = request.response;
+    populateHeader(superHeroes);
+    showHeroes(superHeroes);
+};
+      </script>
+  </body>
+</html>
